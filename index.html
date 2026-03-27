@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GSpark: Multimodal User-Behavior Dataset for Gaussian Splatting</title>
+    <title>Guided by Your Behavior: A Large-Scale Multimodal User-Behavior Dataset for Understanding 3D/4DGS Interaction</title>
     <style>
         :root {
             --primary-blue: #1a2c3e;
@@ -205,17 +205,15 @@
 <body>
 
 <header>
-    <h1>Guided by Your Behavior: A Multimodal User-Behavior Dataset for Photorealistic Static and Dynamic Gaussian Splat Viewing</h1>
+    <h1>Guided by Your Behavior: A Large-Scale Multimodal User-Behavior Dataset for Understanding 3D/4DGS Interaction</h1>
     <div class="authors">Anonymous Author(s) — Under Review for ACM Multimedia 2026</div>
 </header>
 
-<!-- Overview Figure -->
 <section>
     <img src="assets/Fig.png" alt="GSpark overview: downstream applications guided by multimodal user behavior" class="main-fig">
     <p class="caption">Figure 1:  Illustration of downstream services and applications guided by multimodal cross-category user behavior analysis.
 </section>
 
-<!-- Abstract Section (Core focus on dataset) -->
 <section>
     <h2>Abstract</h2>
     <p class="abstract">
@@ -223,7 +221,6 @@
     </p>
 </section>
 
-<!-- Key Stats Cards -->
 <div class="stats-grid">
     <div class="stat-card"><div class="stat-number">81</div><div class="stat-label">Participants</div></div>
     <div class="stat-card"><div class="stat-number">12</div><div class="stat-label">GS Scenes</div></div>
@@ -252,10 +249,7 @@
             </tbody>
         </table>
     </div>
-    <!-- Original Table 1 Image -->
-
-</section>
-<!-- 1. Dataset Content & Stimuli (Table 2) -->
+    </section>
 <section>
     <h2>GS Content Stimuli</h2>
     <p>We curated 12 photorealistic Gaussian Splatting scenes covering four representative categories aligned with recent GS literature. Each scene ensures diverse geometric and dynamic complexity. Viewing durations guarantee sufficient exploration (≥120s for static scenes, loops for dynamic clips).</p>
@@ -281,11 +275,8 @@
             </tbody>
         </table>
     </div>
-    <!-- Original Table 2 Image (as supplementary) -->
+    </section>
 
-</section>
-
-<!-- 2. Equipment & Acquisition -->
 <section>
     <h2> Acquisition System & Equipment</h2>
     <p>Our data acquisition prototype uses an <strong>HTC VIVE Focus 3 Vision HMD</strong> with dual eye-tracking cameras (90 Hz). The system integrates with Unity via OpenXR, communicating with a Python-based proxy renderer that supports heterogeneous GS representations (3DGS & 4DGS) via UDP. User 6DoF head poses (position + orientation) and gaze vectors (world-space quaternion) are recorded at 25–45 Hz depending on scene complexity. All GS models are rendered at original 1:1 scale to preserve geometric fidelity.</p>
@@ -296,7 +287,6 @@
     </ul>
 </section>
 
-<!-- 3. Participants & Procedure -->
 <section>
     <h2> Participants & Procedure</h2>
     <p>We recruited <strong>81 participants</strong> (age 19–56, 43 female, 38 male) with normal/corrected vision. Most had limited XR experience, yet reported high immersion (MOS > 4.2/5). Each participant viewed all 12 GS stimuli in randomized category order. The experiment comprised: (1) preparation & IPD calibration, (2) interactive viewing with free 6DoF exploration, (3) post-questionnaire (demographics, immersion, cybersickness). Behavioral data was automatically logged without interruption.</p>
@@ -313,33 +303,24 @@
     <p>Each CSV trace includes: <code>Timestamp, Scene_X, Scene_Y, Scene_Z, Head_RotX, Head_RotY, Head_RotZ, Eye_RotX, Eye_RotY, Eye_RotZ, Eye_RotW</code>. Folder structure follows <code>Category_UserBehavior/ContentName_Label/UID_ContentName.csv</code> and detailed README.</p>
 </section>
 
-<!-- 4. Dataset Comparison (Table 1) -->
-
-
-
-
-<!-- 6. Dataset Structure & Format -->
 <section>
     <h2>📁 Dataset Structure & Format</h2>
     <p>The dataset follows a hierarchical folder structure for easy navigation:</p>
     <pre style="background:#f0f2f5; color:#2c3e4e;">
-GSpark/
-├── Stimuli/               # sample rendered images of each scene
-├── Category_UserBehavior/
-│   ├── Garden_3DGS/
-│   │   ├── Garden_Outdoor/
-│   │   │   ├── UID001_Garden.csv
-│   │   │   └── ...
-│   ├── LargeScale_3DGS/
-│   ├── Dynamic_Human_4DGS/
-│   └── Dynamic_FullScene_4DGS/
-├── Readme.md              # acquisition parameters, coordinate system, equipment details
+ROOT/
+├── Stimuli (Viewing Frames)/      # sample rendered images of each scene
+│   ├── "Content Name"_"Label"/
+│   └── ...
+├── "Category"_UserBehavior/
+│   ├── "Content Name"_"Label"/
+│   │   └── "UID"_"Content Name".csv
+├── ...
+├── Readme.md                      # acquisition parameters, coordinate system, equipment details
 └── LICENSE.txt
     </pre>
     <p>Each CSV includes columns: Timestamp (ms), Scene_X/Y/Z (meters), Head_RotX/Y/Z (degrees), Eye_RotX/Y/Z/W (quaternion). Sampling rates vary between 25–45 Hz depending on scene rendering load. The README file provides comprehensive documentation on coordinate conventions and usage.</p>
 </section>
 
-<!-- 7. Download & Access -->
 <section id="download">
     <h2>Download & Access</h2>
     <div style="background: #fef8f5; padding: 28px; border-radius: 24px; border: 1px solid #f0d6d0; text-align: center;">
@@ -352,7 +333,6 @@ GSpark/
     </div>
 </section>
 
-<!-- 8. Citation & BibTeX -->
 <section id="citation">
     <h2>Citation</h2>
     <p>If you use GSpark in your research, please cite the following paper:</p>
