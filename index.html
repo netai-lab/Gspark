@@ -84,6 +84,12 @@
             color: var(--accent-red);
             line-height: 1;
         }
+        .stat-number_2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-red);
+            line-height: 1;
+        }
         .stat-label {
             font-size: 0.9rem;
             color: #2c3e50;
@@ -233,7 +239,7 @@
     <div class="stat-card"><div class="stat-number">81</div><div class="stat-label">Participants</div></div>
     <div class="stat-card"><div class="stat-number">12</div><div class="stat-label">GS Scenes</div></div>
     <div class="stat-card"><div class="stat-number">972</div><div class="stat-label">User Traces</div></div>
-    <div class="stat-card"><div class="stat-number small-text">6DoF + Gaze</div><div class="stat-label">Multimodal Signals</div></div>
+    <div class="stat-card"><div class="stat-number_2">6DoF + Gaze</div><div class="stat-label">Multimodal Signals</div></div>
     <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">Content Categories</div></div>
 </div>
 
@@ -287,7 +293,7 @@
 
 <section>
     <h2> Equipment & Acquisition System </h2>
-    <p>Our data acquisition prototype uses an <strong>HTC VIVE Focus 3 Vision HMD</strong> with dual eye-tracking cameras. The system integrates with Unity via OpenXR, communicating with a Python-based proxy renderer that supports heterogeneous GS representations (3DGS & 4DGS) via UDP. User 6DoF head poses (position + orientation) and gaze vectors (world-space quaternion) are recorded at 25–45 Hz depending on scene complexity. All GS models are rendered at the original 1:1 scale to preserve geometric fidelity.</p>
+    <p>Our data acquisition prototype uses an <strong>HTC VIVE Focus 3 Vision HMD</strong> with dual eye-tracking cameras. The system integrates with Unity via OpenXR, communicating with a Python-based proxy renderer that supports heterogeneous GS representations (3DGS & 4DGS) via UDP. As the maximum refresh rate supported by the hardware varies with scene scale, we record user 6DoF poses and gaze signals at a sampling rate of approximately 25–45 Hz using an automated logger. Note that 4DGS playback preserves the original video frame rate (FPS), while user behavior is sampled at a higher rate. All GS models are rendered at the original 1:1 scale to preserve geometric fidelity.</p>
     <ul>
         <li><strong>Hardware</strong>: NVIDIA RTX 3090 GPU + Intel i9-10900K, wireless HMD with swivel chair for free rotation & handheld controller for translation.</li>
         <li><strong>Software</strong>: Unity engine, custom proxy renderers, 3DGS [10] &  4K4D [25] models.</li>
